@@ -20,8 +20,8 @@ class Details extends Component{
         let data = this.props.details;
             const imageURL = get(data, "featured_image");
             const restaurant_Name = get(data, "name");
-            // const restaurant_Rating = get(data, "restaurant.user_rating.aggregate_rating");
-            // const restaurant_Votes = get(data, "restaurant.user_rating.votes");
+            const restaurant_Rating = get(data, "user_rating.aggregate_rating");
+            const restaurant_Votes = get(data, "user_rating.votes");
             // const restaurant_locality = get(data, "restaurant.location.locality_verbose");
             // const restaurant_address = get(data, "restaurant.location.address");
             // // const restaurant_Review = get(data, "restaurant.");
@@ -46,6 +46,16 @@ class Details extends Component{
         return(
             <div className='container'>
                <img className="details-img" src={imageURL}/>
+               <div className='basic-info'>
+                   <h4 className='resto-name'>{restaurant_Name}</h4>
+                   <span className='resto-rating'>{restaurant_Rating}</span>
+                   <span className='resto-vote'>{restaurant_Votes}</span>
+                   <button className='share-btn'>Share</button>
+               </div>
+               <div className='cuisine-info'>
+                    
+               </div>
+               
                 
             </div>
             

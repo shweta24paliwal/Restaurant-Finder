@@ -4,15 +4,24 @@ import mapDispatchToProp from './mapDispatchToProp';
 import mapStateToProps from './mapStateToProp';
 import './Listing.css'
 import { get } from 'lodash';
+
+
+const count = 10;
 class Listing extends Component{
     constructor(props){
         super(props);
-        
+        this.loadMoreResult = this.loadMoreResult.bind(this);
     }
 
     componentDidMount() {
         debugger;
-        // this.props.getRestaurantsData();
+        this.props.getRestaurantsData(0,count);
+    }
+    loadMoreResult(){
+        const start = this.props.result_start + this.props.result_shown;
+        if(this.props.result_found > start){
+            this.props.getRestaurantsData(start,count);
+        }
     }
 
     render(){
@@ -43,12 +52,12 @@ class Listing extends Component{
             )
         });
         return(
-            <div>
+            <div className='container'>
                 <h2>Showing restaurants in:"Bangaluru"</h2>
                 <ul className='resto-list'>
                     {restaurantList}
                 </ul>
-               
+                <button onClick={this.loadMoreResult}>MORE</button>
             </div>
             
         );
