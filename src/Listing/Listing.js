@@ -11,12 +11,30 @@ class Listing extends Component{
     constructor(props){
         super(props);
         this.loadMoreResult = this.loadMoreResult.bind(this);
+        this.intersectionCallback = this.intersectionCallback.bind(this);
     }
 
     componentDidMount() {
         debugger;
         this.props.getRestaurantsData(0,count);
+        // config that define root margin and threshlod 
+        const options = {
+            rootMargin: '100px',
+            threshold: 1.0
+        }
+        // this creates a observer;  
+        const observer = new IntersectionObserver(this.intersectionCallback, options);
+        
+        const target = document.querySelector('#listMoreLoader');
+        observer.observe(target);
     }
+   
+    intersectionCallback(entries){
+        if (entries[0].intersectionRatio > 0) {
+            this.loadMoreResult();
+        }
+    }
+
     loadMoreResult(){
         const start = this.props.result_start + this.props.result_shown;
         if(this.props.result_found > start){
@@ -57,9 +75,10 @@ class Listing extends Component{
                 <ul className='resto-list'>
                     {restaurantList}
                 </ul>
-                <button onClick={this.loadMoreResult}>MORE</button>
+                <div id="listMoreLoader">
+                    Loading more results ...
+                </div>
             </div>
-            
         );
     }
 }

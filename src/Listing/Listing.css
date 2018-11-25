@@ -44,3 +44,9 @@
     font-weight: 300;
 }
 
+
+#listMoreLoader {
+    text-align: center;
+    font-size: 18px;
+    padding: 30px;
+}
