@@ -1,0 +1,46 @@
+
+.resto-image{
+    width:200px;
+    float: left;
+    margin-right: 20px;
+    cursor: pointer;
+}
+.clear {
+    clear: both;
+}
+.resto-list{
+    list-style: none;
+    padding: 0px;
+}
+.resto-list li{
+    padding: 20px;
+    border-bottom: 1px solid #e2d6d6;
+}
+.resto-name{
+    margin: 0px 0px 7px 0px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #b40707;
+    cursor: pointer;
+}
+.resto-rating{
+    font-size: 14px;
+    font-weight: 500;
+    margin-right: 5px;
+}
+.resto-votes{
+    font-size: 12px;
+    font-weight: 300;
+}
+.locality{
+    margin: 0px;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+.address{
+    font-size: 13px;
+    font-weight: 300;
+}
+

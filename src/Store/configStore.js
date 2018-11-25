@@ -3,15 +3,21 @@ import thunk from 'redux-thunk';
 
 const defaultState = {
     cities:["Bangaluru", "Delhi","Pune","Mumbai","Hyderabad"],
-    restaurantsData: null 
+    restaurantsList: null,
+    restaurantDetails:null
 }
 
 function newState(state=defaultState, action){
     switch(action.type){
-        case 'RESTAURANTS_DATA_FETCHED':
+        case 'RESTAURANTS_LIST_FETCHED':
         return{
             ...state,
-            restaurantsData:action.data
+            restaurantsList:action.data
+        }
+        case 'RESTAURANT_DETAILS_FETCHED':
+        return{
+            ...state,
+            restaurantDetails:action.data
         }
         default:
             return state

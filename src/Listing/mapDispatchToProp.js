@@ -10,7 +10,7 @@ const mapDispatchToProp = dispatch => ({
                 .then(res => {
                     console.log(res);
                     dispatch({
-                        type:'RESTAURANTS_DATA_FETCHED',
+                        type:'RESTAURANTS_LIST_FETCHED',
                         data:res.body
                     })    
                      debugger;   
