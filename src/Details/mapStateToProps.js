@@ -1,3 +1,4 @@
+import { get } from 'lodash';
 const rData = {
     "R": {
       "res_id": 56618
@@ -105,11 +106,134 @@ const rData = {
     "book_url": "https://www.zomato.com/bangalore/abs-absolute-barbecues-marathahalli/book?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
     "events_url": "https://www.zomato.com/bangalore/abs-absolute-barbecues-marathahalli/events#tabtop?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1"
   }
+const detaildata =
+  {
+    "user_reviews": [
+      {
+        "review": {
+          "rating": 4,
+          "review_text": "The place is great for the food spread and definitely value for money and jolly good time to spend with friends and family alike ..The only ...",
+          "id": 40259946,
+          "rating_color": "5BA829",
+          "review_time_friendly": "yesterday",
+          "rating_text": "Great!",
+          "timestamp": 1543109351,
+          "likes": 0,
+          "user": {
+            "name": "Anjan AK",
+            "foodie_level": "Foodie",
+            "foodie_level_num": 3,
+            "foodie_color": "ffd35d",
+            "profile_url": "https://www.zomato.com/users/anjan-ak-27817969?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+            "profile_image": "https://b.zmtcdn.com/data/user_profile_pictures/ce2/fcea5acaf5fcbae7ed752e263b56ece2.jpg?fit=around%7C100%3A100&crop=100%3A100%3B%2A%2C%2A",
+            "profile_deeplink": "zomato://u/27817969"
+          },
+          "comments_count": 0
+        }
+      },
+      {
+        "review": {
+          "rating": 5,
+          "review_text": "Everything is good.. i recommend others to visit..services are good.server Vikram is excellent.much recommendable..our pleasure to visit abs...",
+          "id": 40246915,
+          "rating_color": "305D02",
+          "review_time_friendly": "2 days ago",
+          "rating_text": "Insane!",
+          "timestamp": 1543052721,
+          "likes": 0,
+          "user": {
+            "name": "Raghu B",
+            "foodie_level": "Foodie",
+            "foodie_level_num": 2,
+            "foodie_color": "ffd35d",
+            "profile_url": "https://www.zomato.com/users/raghu-b-65418260?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+            "profile_image": "https://b.zmtcdn.com/data/user_profile_pictures/abb/5f7737b279cad79f30c995d6399c5abb.jpg?fit=around%7C100%3A100&crop=100%3A100%3B%2A%2C%2A",
+            "profile_deeplink": "zomato://u/65418260"
+          },
+          "comments_count": 0
+        }
+      },
+      {
+        "review": {
+          "rating": 5,
+          "review_text": "Great service..Pampered us right from the start till the end ...and food was the best...awesome experience....Chandan Das catered to our nee...",
+          "id": 40246888,
+          "rating_color": "305D02",
+          "review_time_friendly": "2 days ago",
+          "rating_text": "Insane!",
+          "timestamp": 1543052653,
+          "likes": 0,
+          "user": {
+            "name": "Rupali Vignesh",
+            "foodie_level": "Foodie",
+            "foodie_level_num": 2,
+            "foodie_color": "ffd35d",
+            "profile_url": "https://www.zomato.com/users/rupali-vignesh-51992266?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+            "profile_image": "https://b.zmtcdn.com/images/user_avatars/pizza_2x.png?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A",
+            "profile_deeplink": "zomato://u/51992266"
+          },
+          "comments_count": 0
+        }
+      },
+      {
+        "review": {
+          "rating": 5,
+          "review_text": null,
+          "id": 40246539,
+          "rating_color": "305D02",
+          "review_time_friendly": "2 days ago",
+          "rating_text": "Insane!",
+          "timestamp": 1543051722,
+          "likes": 0,
+          "user": {
+            "name": "Binoy Av",
+            "foodie_level": "Foodie",
+            "foodie_level_num": 2,
+            "foodie_color": "ffd35d",
+            "profile_url": "https://www.zomato.com/users/binoy-av-3964601?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+            "profile_image": "https://b.zmtcdn.com/images/user_avatars/cupcake.png?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A",
+            "profile_deeplink": "zomato://u/3964601"
+          },
+          "comments_count": 0
+        }
+      },
+      {
+        "review": {
+          "rating": 5,
+          "review_text": "The food overall was very tasty.enjoyed the lunch with family @AB's, Maratha Halli. Vikram was attending us and took care of us well. Highly...",
+          "id": 40245527,
+          "rating_color": "305D02",
+          "review_time_friendly": "2 days ago",
+          "rating_text": "Insane!",
+          "timestamp": 1543048505,
+          "likes": 0,
+          "user": {
+            "name": "Vincent Raj",
+            "foodie_level": "Foodie",
+            "foodie_level_num": 2,
+            "foodie_color": "ffd35d",
+            "profile_url": "https://www.zomato.com/users/vincent-raj-31741407?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+            "profile_image": "https://b.zmtcdn.com/data/user_profile_pictures/761/7b49ca5be7b3813a506e2d9bf6f00761.jpg?fit=around%7C100%3A100&crop=100%3A100%3B%2A%2C%2A",
+            "profile_deeplink": "zomato://u/31741407"
+          },
+          "comments_count": 0
+        }
+      }
+    ],
+    "review_count": 6214,
+    "review_start": 0,
+    "review_shown": 5
+  }
+
 
 const mapStateToProp = state => {
     debugger;
     return {
-        details:rData || state.restaurantDetails
+        details:rData || state.restaurantDetails,
+        reviews:detaildata.user_reviews || get(state.restaurantReviews, "user_reviews"),
+        review_count:detaildata || state.restaurantReviews.review_count,
+        review_start:detaildata || state.restaurantReviews.review_start,
+        review_shown:detaildata || state.restaurantReviews.review_shown,
     };
 }
 export default mapStateToProp

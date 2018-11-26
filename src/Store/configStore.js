@@ -9,7 +9,13 @@ const defaultState = {
         results_start: 0,
         results_shown: 0,
     },
-    restaurantDetails:null
+    restaurantDetails:null,
+    restaurantReviews:{
+        user_reviews:[],
+        review_count:0,
+        review_shown:0,
+        review_start:0
+    }
 }
 
 function newState(state=defaultState, action){
@@ -28,6 +34,16 @@ function newState(state=defaultState, action){
         return{
             ...state,
             restaurantDetails:action.data
+        }
+        case 'RESTAURANT_REVIEWS_FETCHED':
+        return{
+            ...state,
+            restaurantReviews:{
+                user_reviews:action.data.user_reviews,
+                review_count:action.data.reviews_count,
+                review_start:action.data.reviews_start,
+                review_shown:action.data.reviews_shown,
+            }
         }
         default:
             return state
