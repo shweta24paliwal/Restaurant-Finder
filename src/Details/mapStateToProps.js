@@ -229,11 +229,11 @@ const detaildata =
 const mapStateToProp = state => {
     debugger;
     return {
-        details:rData || state.restaurantDetails,
-        reviews:detaildata.user_reviews || get(state.restaurantReviews, "user_reviews"),
-        review_count:detaildata || state.restaurantReviews.review_count,
-        review_start:detaildata || state.restaurantReviews.review_start,
-        review_shown:detaildata || state.restaurantReviews.review_shown,
+        details: state.restaurantDetails,
+        reviews: get(state.restaurantReviews, "user_reviews"),
+        review_count: state.restaurantReviews.review_count,
+        review_start: state.restaurantReviews.review_start,
+        review_shown: state.restaurantReviews.review_shown,
     };
 }
 export default mapStateToProp

@@ -2537,7 +2537,6 @@ const res = [
 
 
 const mapStateToProp = state => {
-   
     return {
         restaurants: get(state.restaurantsList, 'restaurants',[]),
         result_start: get(state.restaurantsList, "results_start"),

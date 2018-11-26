@@ -4,6 +4,7 @@ import mapDispatchToProp from './mapDispatchToProps';
 import mapStateToProps from './mapStateToProps';
 import { get } from 'lodash';
 import './Details.css';
+import { withRouter} from 'react-router-dom';
 
 class Details extends Component{
     constructor(props){
@@ -12,7 +13,10 @@ class Details extends Component{
     }
 
     componentDidMount() {
-        
+        window.scrollTo(0,0);
+        const restId = this.props.match.params.restId;
+        this.props.getRestaurantDetails(parseInt(restId, 10));
+        this.props.getRestaurantReviews(parseInt(restId, 10));
         // Details API Calling
         // this.props.getRestaurantDetails();
         // Reviews API calling
@@ -20,6 +24,7 @@ class Details extends Component{
     }
 
     render(){
+        const restId = this.props.match.params.restId;
         let data = this.props.details;
         let reviewData = this.props.reviews;
         let reviewCount = this.props.review_count;
@@ -62,7 +67,7 @@ class Details extends Component{
                 )
             }) ;
         return(
-            <div className='container'>
+            <div className='container' key={restId}>
                <img className="details-img" src={imageURL}/>
                <div className='resto-info'>
                    <h4 className='resto-name'>{restaurant_Name}</h4>
@@ -72,7 +77,7 @@ class Details extends Component{
                             {restaurant_Rating}
                         </span>
                         <span className='resto-vote'>({restaurant_Votes}) votes</span>
-                        <span className='review-count'>{review_Count} Reviews</span>
+                        <span className='review-count'>{reviewCount} Reviews</span>
                     </div>
 
                     <div className='cuisine-info'>
@@ -86,7 +91,7 @@ class Details extends Component{
                         <div class='info'>
                             {restaurant_locality} 
                         </div>
-                        <div class='info'>
+                        <div class='a-info'>
                             {restaurant_address}
                         </div>
                     </div>
@@ -106,4 +111,4 @@ class Details extends Component{
         );
     }
 }
-export default connect(mapStateToProps, mapDispatchToProp)(Details)
+export default withRouter(connect(mapStateToProps, mapDispatchToProp)(Details))

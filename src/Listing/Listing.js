@@ -4,7 +4,8 @@ import mapDispatchToProp from './mapDispatchToProp';
 import mapStateToProps from './mapStateToProp';
 import './Listing.css'
 import { get } from 'lodash';
-
+import { withRouter} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const count = 10;
 class Listing extends Component{
@@ -16,7 +17,9 @@ class Listing extends Component{
 
     componentDidMount() {
         debugger;
-        this.props.getRestaurantsData(0,count);
+    
+        const cityId = this.props.match.params.cityId;
+        this.props.getRestaurantsData(0,count, parseInt(cityId, 10));
         // config that define root margin and threshlod 
         const options = {
             rootMargin: '100px',
@@ -43,6 +46,7 @@ class Listing extends Component{
     }
 
     render(){
+        const cityName = this.props.match.params.cityName;
         let restaurantList = this.props.restaurants.map((data,index)=>{
             const imageURL = get(data, "restaurant.featured_image");
             const restaurant_Name = get(data, "restaurant.name");
@@ -50,28 +54,31 @@ class Listing extends Component{
             const restaurant_Votes = get(data, "restaurant.user_rating.votes");
             const restaurant_locality = get(data, "restaurant.location.locality_verbose");
             const restaurant_address = get(data, "restaurant.location.address");
+            const restId = get(data, 'restaurant.R.res_id');
             // const restaurant_Review = get(data, "restaurant.");
             return (
                 <li key={index}>
-                    <img className='resto-image' src={imageURL}/>
-                    <h4 className='resto-name'>{restaurant_Name}</h4>
-                    <h3 className='locality'>{restaurant_locality}</h3>
-                    <address className='address'>{restaurant_address}</address>
-                    <div>
-                        <span className='resto-rating'>
-                            <i className="far fa-star"></i>
-                            {restaurant_Rating}
-                        </span>
-                        <span className='resto-votes'>({restaurant_Votes} votes)</span>
-                        {/* <span>{restaurant_Review}</span> */}
-                    </div>
-                    <div className='clear'></div>
+                    <Link to={`/details/${restId}`}>
+                        <img className='resto-image' src={imageURL}/>
+                        <h4 className='resto-name'>{restaurant_Name}</h4>
+                        <h3 className='locality'>{restaurant_locality}</h3>
+                        <address className='address'>{restaurant_address}</address>
+                        <div>
+                            <span className='resto-rating'>
+                                <i className="far fa-star"></i>
+                                {restaurant_Rating}
+                            </span>
+                            <span className='resto-votes'>({restaurant_Votes} votes)</span>
+                            {/* <span>{restaurant_Review}</span> */}
+                        </div>
+                        <div className='clear'></div>        
+                    </Link>    
                 </li>
             )
         });
         return(
             <div className='container'>
-                <h2>Showing restaurants in:"Bangaluru"</h2>
+                <h2>Showing restaurants in:{cityName}</h2>
                 <ul className='resto-list'>
                     {restaurantList}
                 </ul>
@@ -82,4 +89,4 @@ class Listing extends Component{
         );
     }
 }
-export default connect(mapStateToProps, mapDispatchToProp)(Listing)
+export default withRouter(connect(mapStateToProps, mapDispatchToProp)(Listing))

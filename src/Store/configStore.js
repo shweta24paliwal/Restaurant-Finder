@@ -2,7 +2,7 @@ import {createStore, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
 
 const defaultState = {
-    cities:["Bangaluru", "Delhi","Pune","Mumbai","Hyderabad"],
+    cities:["Bengaluru", "Delhi","Pune","Mumbai","Hyderabad"],
     restaurantsList: {
         restaurants: [],
         results_found: 0,
