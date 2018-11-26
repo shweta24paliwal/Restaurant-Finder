@@ -17,11 +17,11 @@
 .resto-name{
     font-size: 22px;
     margin: 0px;
-    font-weight: 700;
+    font-weight: 500;
 }
 .resto-rating{
     font-size: 14px;
-    font-weight: 700;
+    font-weight: 500;
     margin-right: 5px;
 }
 .resto-vote{
@@ -53,7 +53,7 @@
     border-bottom: 1px solid #e2cfcf;
 }
 .cuisine-info .cuisine-items{
-    font-weight: 300;
+    font-weight: 400;
     color:#d62748;
     font-size: 15px;
 }
@@ -66,19 +66,27 @@
 }
 /* Address css */
 .resto-address .info{
-    padding: 10px 0px;
+    padding: 20px 0px 5px 0px;
     font-size: 13px;
 }
-.resto-address .a-info{
-    padding-bottom: 20px;
-    font-size: 13px;
-    border-bottom: 1px solid #e2cfcf;
+
+/* photo and menu css */
+.btn-section{
+    padding: 10px 0px;
 }
 
 /* Reviews css */
+.reviews .head{
+    margin-top: 10px;
+    font-weight: 400;
+}
 .reviews ul{
     padding: 0px;
     list-style: none;
+}
+.reviews li{
+    clear: both;
+    margin-bottom: 30px;
 }
 .reviews .user-image{
     border-radius: 50%;
@@ -89,6 +97,8 @@
 }
 .reviews .user-name{
    font-size: 15px;
+   font-weight: 400;
+   margin-bottom: 3px;
 }
 .reviews .reviews-info{
     margin-left: 70px;
@@ -96,6 +106,7 @@
 .reviews .review-text{
     font-size: 15px;
     color: gray;
+    margin-top: 10px;
 }
 .reviews .stars{
     color:#FF9800;

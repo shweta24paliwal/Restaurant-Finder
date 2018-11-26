@@ -12,7 +12,7 @@ class Details extends Component{
     }
 
     componentDidMount() {
-        debugger;
+        
         // Details API Calling
         // this.props.getRestaurantDetails();
         // Reviews API calling
@@ -86,12 +86,16 @@ class Details extends Component{
                         <div class='info'>
                             {restaurant_locality} 
                         </div>
-                        <div class='a-info'>
+                        <div class='info'>
                             {restaurant_address}
                         </div>
                     </div>
+                    <div className='btn-section'>
+                        <button>Photos</button>
+                        <button>Menu</button>
+                    </div>
                     <div className='reviews'>
-                            <h4>Ratings</h4>
+                            <h4 className='head'>Ratings</h4>
                             <ul>
                                 {user_reviews}
                             </ul>
