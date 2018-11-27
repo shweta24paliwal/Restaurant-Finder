@@ -1,0 +1,41 @@
+/* Reviews css */
+
+.reviews .head{
+    margin-top: 10px;
+    font-weight: 400;
+    color: #FF9800;
+}
+.reviews ul{
+    margin-top: 20px;
+    padding: 0px;
+    list-style: none;
+}
+.reviews li{
+    clear: both;
+    margin-bottom: 30px;
+}
+.reviews .user-image{
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    float: left;
+    margin-right: 20px;
+}
+.reviews .user-name{
+   font-size: 15px;
+   font-weight: 400;
+   margin-bottom: 3px;
+}
+.reviews .reviews-info{
+    margin-left: 70px;
+}
+.reviews .review-text{
+    font-size: 15px;
+    color: gray;
+    margin-top: 10px;
+}
+.stars{
+    color:#FF9800;
+    font-size: 12px;
+    letter-spacing: 3px;
+}

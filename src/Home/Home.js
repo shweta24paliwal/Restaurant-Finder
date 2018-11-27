@@ -4,6 +4,7 @@ import mapDispatchToProp from './mapDispatchToProp';
 import mapStateToProps from './mapStateToProp';
 import { withRouter} from 'react-router-dom';
 import superagent from "superagent";
+import "./Home.css"
 class Home extends Component{
     constructor(props){
         super(props);
@@ -45,14 +46,20 @@ class Home extends Component{
     render(){
         const city = this.props.cities.map((cityName,index)=>{
             return (
-                <span key={index} onClick={() => this.onClickHandler(cityName)}>{cityName}</span>
+                <li key={index} onClick={() => this.onClickHandler(cityName)}>
+                    <button className='btn'>{cityName}</button>
+                </li>
             )
         });
         return(
-            <div>
-               <nav>
+            <div class='container'>
+            <div className='cityList-container container'>
+            <h3 className='heading'>Select your City</h3>
+                <ul className="cityList">
                    {city}
-               </nav>
+                </ul>
+            </div>
+               
             </div>
             
         );

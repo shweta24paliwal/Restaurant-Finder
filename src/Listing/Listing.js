@@ -6,6 +6,7 @@ import './Listing.css'
 import { get } from 'lodash';
 import { withRouter} from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import Loader from '../Loader/Loader.js'
 
 const count = 10;
 class Listing extends Component{
@@ -16,14 +17,12 @@ class Listing extends Component{
     }
 
     componentDidMount() {
-        debugger;
-    
         const cityId = this.props.match.params.cityId;
         this.props.getRestaurantsData(0,count, parseInt(cityId, 10));
         // config that define root margin and threshlod 
         const options = {
-            rootMargin: '100px',
-            threshold: 1.0
+            rootMargin: '200px',
+            threshold: .5
         }
         // this creates a observer;  
         const observer = new IntersectionObserver(this.intersectionCallback, options);
@@ -55,22 +54,30 @@ class Listing extends Component{
             const restaurant_locality = get(data, "restaurant.location.locality_verbose");
             const restaurant_address = get(data, "restaurant.location.address");
             const restId = get(data, 'restaurant.R.res_id');
-            // const restaurant_Review = get(data, "restaurant.");
+            const restaurant_cuisine = get(data, "restaurant.cuisines");
+            if(!imageURL){
+                return null;
+            }
             return (
                 <li key={index}>
                     <Link to={`/details/${restId}`}>
                         <img className='resto-image' src={imageURL}/>
-                        <h4 className='resto-name'>{restaurant_Name}</h4>
-                        <h3 className='locality'>{restaurant_locality}</h3>
-                        <address className='address'>{restaurant_address}</address>
-                        <div>
-                            <span className='resto-rating'>
-                                <i className="far fa-star"></i>
-                                {restaurant_Rating}
-                            </span>
-                            <span className='resto-votes'>({restaurant_Votes} votes)</span>
-                            {/* <span>{restaurant_Review}</span> */}
+                        <div className='resto-details'>
+                            <h4 className='resto-name'>{restaurant_Name}</h4>
+                            <h5 className='resto-cuisine'>{restaurant_cuisine}</h5>
+                            <h4 className='locality'>{restaurant_locality}</h4>
+                            <address>{restaurant_address}</address>
+                            <div>
+                                <span className='resto-rating'>
+                                    <span className='star'><i class="fas fa-star"></i></span>
+                                    {restaurant_Rating}
+                                </span>
+                                <span className='resto-votes'>({restaurant_Votes} votes)</span>
+                                {/* <span>{restaurant_Review}</span> */}
+                            </div>
+
                         </div>
+                        
                         <div className='clear'></div>        
                     </Link>    
                 </li>
@@ -78,12 +85,12 @@ class Listing extends Component{
         });
         return(
             <div className='container'>
-                <h2>Showing restaurants in:{cityName}</h2>
+                <h2 className='heading-title'>Showing restaurants in:{cityName}</h2>
                 <ul className='resto-list'>
                     {restaurantList}
                 </ul>
                 <div id="listMoreLoader">
-                    Loading more results ...
+                    <Loader/>
                 </div>
             </div>
         );

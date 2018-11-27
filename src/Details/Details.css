@@ -24,6 +24,7 @@
     font-weight: 500;
     margin-right: 5px;
 }
+
 .resto-vote{
     font-size: 12px;
     font-weight: 300;
@@ -43,7 +44,7 @@
     border: none;
     font-size: 13px;
     padding: 5px 15px;
-    background: #3cab53;
+    background: #08681c;
     color: #fff;
 }
 /* Cusinine info css */
@@ -77,14 +78,30 @@
 /* photo and menu css */
 .btn-section{
     padding: 10px 0px;
+    border-bottom: 1px solid #e2cfcf;
+}
+.btn-section .btn{
+    padding: 10px 20px;
+    width: 26%;
+    border: none;
+    border-radius: 12px;
+    background: #26aca6;
+    color: #fff;
+    margin-right: 5px;
+}
+.btn-section .btn .btn-icon{
+    margin-right: 10px;
+    color: #FFEB3B;
 }
 
 /* Reviews css */
 .reviews .head{
     margin-top: 10px;
     font-weight: 400;
+    color: #FF9800;
 }
 .reviews ul{
+    margin-top: 20px;
     padding: 0px;
     list-style: none;
 }
@@ -112,8 +129,17 @@
     color: gray;
     margin-top: 10px;
 }
-.reviews .stars{
+.stars{
     color:#FF9800;
     font-size: 12px;
     letter-spacing: 3px;
+}
+.more-btn{
+    padding: 10px 20px;
+    width: 20%;
+    border: none;
+    border-radius: 8px;
+    background: #26aca6;
+    color: #fff;
+    font-size: 13px;
 }
