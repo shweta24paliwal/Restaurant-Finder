@@ -9,6 +9,29 @@ class Home extends Component{
         super(props);
         this.onClickHandler = this.onClickHandler.bind(this);
     }
+    componentDidMount(){
+        if ("geolocation" in navigator){
+            navigator.geolocation.getCurrentPosition((position)=>{
+                debugger;
+                const lat = position.coords.latitude;
+                const lon = position.coords.longitude;
+                if(lat && lon){
+                    this.getCityData(lat, lon);
+                }
+            })
+        }
+    }
+    
+    getCityData(lat, lon){
+        superagent
+        .get(`https://developers.zomato.com/api/v2.1/cities?lat=${lat}&lon=${lon}`)
+        .set('user-key',"fa81a3f97323eba13d8713d3284b8556")
+        .then(res =>{
+            const city = res.body.location_suggestions[0].name;
+            const cityId = res.body.location_suggestions[0].id;
+            window.location.href = `/listing/${city}/${cityId}`;
+        });
+    }
     
     onClickHandler(city){
         superagent
