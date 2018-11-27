@@ -1,11 +1,11 @@
 .heading-title{
-    padding: 23px 20px;
+    margin: 40px 20px 10px;
     font-size: 18px;
     font-weight: 500;
 }
 a{
     text-decoration: none;
-    color: black;
+    color: #5d5d5d;
 }
 .resto-image{
     padding:20px;
@@ -28,18 +28,18 @@ a{
    margin-bottom: 20px;
 }
 .resto-details{
-    margin-left: 200px;
+    margin-left: 264px;
 }
 .resto-name{
-    margin: 0px 0px 7px 0px;
+    margin: 0px 0px 8px 0px;
     font-size: 16px;
     font-weight: 700;
-    color: #b40707;
+    color: #5d5d5d;
     cursor: pointer;
 }
 .resto-rating{
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 600;
     margin-right: 5px;
 }
 .resto-rating .star{
@@ -48,13 +48,14 @@ a{
 }
 .resto-votes{
     font-size: 12px;
-    font-weight: 300;
+    font-weight: 400;
+    color: #9E9E9E;
 }
 .resto-cuisine{
     font-size: 12px;
     font-weight: 400;
-    margin-bottom: 8px;
-    color: #d62748;
+    margin-bottom: 16px;
+    color: #E91E63;
 }
 .locality{
     margin: 0px;
@@ -67,7 +68,7 @@ address{
     font-size: 13px;
     font-weight: 500;
     font-style: normal;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 

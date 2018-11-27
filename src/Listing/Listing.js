@@ -85,7 +85,7 @@ class Listing extends Component{
         });
         return(
             <div className='container'>
-                <h2 className='heading-title'>Showing restaurants in:{cityName}</h2>
+                <h2 className='heading-title'>Showing restaurants in: <b>{cityName}</b></h2>
                 <ul className='resto-list'>
                     {restaurantList}
                 </ul>

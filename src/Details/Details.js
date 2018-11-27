@@ -64,7 +64,7 @@ class Details extends Component{
             )
         }) ;
         return(
-            <div className='container' key={restId}>
+            <div className='container resto-details-ctn' key={restId}>
                <img className="details-img" src={imageURL}/>
                <div className='resto-info'>
                    <h4 className='resto-name'>{restaurant_Name}</h4>
@@ -82,9 +82,9 @@ class Details extends Component{
                         <span className='cost'>{currency}{rate_for_2} for two</span>
                     </div>
 
-                   <button className='share-btn'>Share</button>
+                   <button className='share-btn'><i class="fas fa-share"></i>  Share</button>
 
-                   <div className='resto-address'>
+                   <div className='resto-address'>  
                         <div class='info'>
                             {restaurant_locality} 
                         </div>
@@ -103,13 +103,13 @@ class Details extends Component{
                         </button>
                     </div>
                     <div className='reviews'>
-                            <h4 className='head'>Ratings</h4>
+                            <h4 className='head'>Ratings:</h4>
                             <ul>
                                 {user_reviews}
                             </ul>
                             <div>
                                 <Link to={`/Reviews/${restId}`}>
-                                    <button className='more-btn'>More reviews...</button>
+                                    <button className='more-btn'><i class="fas fa-pen"></i>  More reviews...</button>
                                 </Link>
                                 
                             </div>

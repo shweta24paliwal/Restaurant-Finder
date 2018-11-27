@@ -48,7 +48,7 @@ class Reviews extends Component{
         return(
             <div className='container'>
                 <div className='reviews'>
-                    <h4 className='head'>Ratings</h4>
+                    <h4 className='head'>Ratings:</h4>
                         <ul>
                             {total_reviews}
                         </ul>

@@ -1,21 +1,24 @@
 header{
-    background: #b40707;
+    background: #0abe51;
 }
+
 .header-title{
     font-size: 26px;
     padding: 10px;
     font-weight: 700;
     display: inline-block;
-    color: black;
+    color: #000000b5;
 }
 .header-title-2{
     font-size: 26px;
-   margin-right: 13px;
+    margin-right: 13px;
+    margin-left: 5px;
     font-weight: 700;
     display: inline-block;
     color: #fff;
 }
+
 .header-icon{
     font-size: 24px;
-    color: #FFEB3B;
+    color: #fff;
 }
