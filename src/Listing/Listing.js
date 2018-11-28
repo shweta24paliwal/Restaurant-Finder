@@ -7,6 +7,8 @@ import { get } from 'lodash';
 import { withRouter} from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Loader from '../Loader/Loader.js'
+import addLikedinLS from '../Helper/addIdToLs.js';
+import removeLikedinLS from '../Helper/removeIdFromLs.js';
 
 const count = 10;
 class Listing extends Component{
@@ -14,6 +16,8 @@ class Listing extends Component{
         super(props);
         this.loadMoreResult = this.loadMoreResult.bind(this);
         this.intersectionCallback = this.intersectionCallback.bind(this);
+        this.likeHandler = this.likeHandler.bind(this);
+        this.unLikeHandler = this.unLikeHandler.bind(this);
     }
 
     componentDidMount() {
@@ -42,6 +46,20 @@ class Listing extends Component{
         if(this.props.result_found > start){
             this.props.getRestaurantsData(start,count);
         }
+    }
+
+    likeHandler(e,id){
+        e.preventDefault();
+        e.stopPropagation();
+        addLikedinLS(id);
+        this.props.addToLiked(id);
+    }
+
+    unLikeHandler(e, id) {
+        e.preventDefault();
+        e.stopPropagation();
+        removeLikedinLS(id);
+        this.props.removeFromLiked(id);
     }
 
     render(){
@@ -73,9 +91,20 @@ class Listing extends Component{
                                     {restaurant_Rating}
                                 </span>
                                 <span className='resto-votes'>({restaurant_Votes} votes)</span>
-                                {/* <span>{restaurant_Review}</span> */}
+                                {data.isLiked ? (
+                                    <button className='unlike-btn' onClick={(e) => this.unLikeHandler(e, restId)}> 
+                                        <span className='filled-heart'>
+                                            <i className="fas fa-heart"></i> Liked
+                                        </span> 
+                                    </button>
+                                ): (
+                                    <button onClick={(e)=>this.likeHandler(e,restId)} className='like-btn'>
+                                        <span className="unfilled-heart"><i className="far fa-heart"></i></span>
+                                        Like
+                                    </button>     
+                                )}
+                           
                             </div>
-
                         </div>
                         
                         <div className='clear'></div>        

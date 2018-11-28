@@ -67,7 +67,15 @@ class Details extends Component{
             <div className='container resto-details-ctn' key={restId}>
                <img className="details-img" src={imageURL}/>
                <div className='resto-info'>
-                   <h4 className='resto-name'>{restaurant_Name}</h4>
+                   <h4 className='resto-name'>
+                        {restaurant_Name}
+                   </h4>
+                   {this.props.details.isLiked && (
+                        <div>
+                            <i class="details-liked fas fa-heart"></i>
+                            <span className="likedText">Liked</span>
+                        </div>    
+                    )}
                    <div className='rating-info'>
                         <span className='resto-rating'>
                             <span class='stars'><i className="fas fa-star"></i></span>

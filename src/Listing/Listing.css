@@ -71,6 +71,20 @@ address{
     margin-bottom: 10px;
 }
 
+.like-btn, .unlike-btn {
+    border: none;
+    outline: none;
+    margin-left: 10px;
+    background: #0abe51;
+    color: #fff;
+    padding: 4px 11px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.unlike-btn .filled-heart,  .like-btn .unfilled-heart{
+    margin-right: 5px;
+}
 
 #listMoreLoader {
     text-align: center;

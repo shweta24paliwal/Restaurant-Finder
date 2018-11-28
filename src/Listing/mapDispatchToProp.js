@@ -19,6 +19,19 @@ const mapDispatchToProp = dispatch => ({
 
            
         })
+    },
+    addToLiked(id){
+        dispatch({
+            type: "ADD_TO_LIKED",
+            data: id
+        })
+    },
+
+    removeFromLiked(id){
+        dispatch({
+            type: "REMOVE_FROM_LIKED",
+            data: id
+        })
     }
     
 })
